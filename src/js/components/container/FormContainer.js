@@ -12,6 +12,15 @@ class FormContainer extends Component {
   handleChange(event) {
     this.setState({ [event.target.id]: event.target.value });
   }
+
+
+  componentDidMount() {
+    fetch('http://139.59.87.167:5000/kpi')
+      .then(response => response.json())
+      .then(data => this.setState({ data }));
+      console.log("response");
+  }
+
   render() {
     const { seo_title } = this.state;
     return (
